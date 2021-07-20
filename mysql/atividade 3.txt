@@ -1,0 +1,62 @@
+ATIVIDADE 3 
+
+-----------------------------
+-----------------------------
+PARTE 1
+
+	Create database db_escola
+
+	Refresh All
+
+-----------------------------
+-----------------------------
+PARTE 2
+
+	use db_escola;
+
+	Create table tb_alunos(
+	
+	id bigint(8) auto_increment,
+        nome varchar(20) not null,
+        idade int,
+        nota decimal (10.1),
+        situacao varchar(10) not null,
+        confirmacao boolean,
+        
+        primary key(id)
+)
+
+	Refresh all
+	Select * from tb_alunos
+
+-------------------------------
+-------------------------------
+PARTE 3 
+
+insert into tb_alunos(nome, idade, nota, situacao, confirmacao) values ("Leonardo", 19, 7.5,"Aprovado", true);
+insert into tb_alunos(nome, idade, nota, situacao, confirmacao) values ("Gabriel", 18, 4.5,"Reprovado", false);
+insert into tb_alunos(nome, idade, nota, situacao, confirmacao) values ("Marcelo", 44, 10.0,"Aprovado", true);
+insert into tb_alunos(nome, idade, nota, situacao, confirmacao) values ("Camila", 40, 2.0,"Reprovado", false);
+insert into tb_alunos(nome, idade, nota, situacao, confirmacao) values ("Sarah", 34, 9.4,"Aprovado", true);
+insert into tb_alunos(nome, idade, nota, situacao, confirmacao) values ("Fabio", 28, 4.6,"Reprovado", false);
+insert into tb_alunos(nome, idade, nota, situacao, confirmacao) values ("Isabella", 6.0, 7.5,"Aprovado", true);
+insert into tb_alunos(nome, idade, nota, situacao, confirmacao) values ("Lucas", 20, 7.0,"Aprovado", true);
+
+select * from tb_alunos
+------------------------------------
+-----------------------------------
+PARTE 4
+
+select * from tb_alunos where nota < 7
+
+select * from tb_alunos where nota > 7
+
+-------------------------------------------
+--------------------------------------------
+update tb_alunos set idade = 17
+	where id = 7;
+
+select * from tb_alunos
+
+
+fim

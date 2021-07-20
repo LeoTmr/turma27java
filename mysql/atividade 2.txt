@@ -1,0 +1,100 @@
+ATIVIDADE 2
+
+-------------------------------------
+-------------------------------------
+PARTE 1
+
+Create database db_ecommerce;
+
+REFRESH ALL
+
+--------------------------------------
+--------------------------------------
+PARTE 2
+
+use db_ecommerce;
+
+use db_ecommerce;
+
+Create table tb_produtos(
+	id bigint (8) auto_increment,
+    nome varchar(30) not null,
+    ativo boolean,
+     primary key(id)
+	);
+
+	REFRESH ALL
+
+select * from tb_produtos
+
+
+----------------------------------------
+----------------------------------------
+PARTE 3
+
+insert into tb_produtos(nome, ativo) values ("Nike", true);
+insert into tb_produtos(nome, ativo) values ("Rolex", true);
+insert into tb_produtos(nome, ativo) values ("Adidas", true);
+insert into tb_produtos(nome, ativo) values ("Puma", true);
+insert into tb_produtos(nome, ativo) values ("Gucci", true);
+insert into tb_produtos(nome, ativo) values ("Supreme", true);
+insert into tb_produtos(nome, ativo) values ("Cyclone", true);
+insert into tb_produtos(nome, ativo) values ("Zara", true);
+
+select * from tb_produtos
+
+-----------------------------------------------
+-----------------------------------------------
+PARTE 4
+
+Create table tb_marca(
+		id bigint auto_increment,
+        nome varchar(20) not null,
+        preco decimal(10,2),
+        quantidade int,
+        estoque char,
+        produto_id bigint not null,
+        
+        primary key(id),
+        foreign key (produto_id) references tb_produtos(id)
+);
+
+REFRESH ALL
+
+--------------------------------------------
+---------------------------------------------
+PARTE 5
+
+insert into tb_marca(nome, preco, quantidade, produto_id) values ("Camisa", 135.00, 34, 1);
+insert into tb_marca(nome, preco, quantidade, produto_id) values ("Rolex Submariner", 300.00, 2,2);
+insert into tb_marca(nome, preco, quantidade, produto_id) values ("Calsa", 100.00, 0,3);
+insert into tb_marca(nome, preco, quantidade, produto_id) values ("Blusa", 900.00, 5,4);
+insert into tb_marca(nome, preco, quantidade, produto_id) values ("Bolsa", 800.00, 2,5);
+insert into tb_marca(nome, preco, quantidade, produto_id) values ("Cinto", 1500.00, 0,6);
+insert into tb_marca(nome, preco, quantidade, produto_id) values ("Juliete", 600.00, 1,7);
+insert into tb_marca(nome, preco, quantidade, produto_id) values ("Terno", 1750.00, 2,8);
+
+REFRESH ALL
+
+select * from tb_marca
+
+---------------------------------------------------
+---------------------------------------------------
+PARTE 6
+
+select * from tb_marca where preco < 500
+
+select * from tb_marca where preco > 500
+
+-----------------------------------------------------
+-----------------------------------------------------
+PARTE 7 
+
+update tb_marca set quantidade = 53
+	where id = 4;
+
+select * from tb_marca 
+
+
+
+FIM

@@ -1,0 +1,58 @@
+
+ATIVIDADE 1
+
+
+----------------------------------
+PARTE 1
+Create database db_funcionarios;
+-----------------------------------
+-----------------------------------
+PARTE 2
+use db_funcionarios;
+
+create table tb_funcionarios(
+
+	id bigint (5) auto_increment,
+	nome varchar(30) not null,
+	trabalhando boolean,
+	salario boolean (10,2),
+	idade int,
+
+	primary key(id)
+);
+
+REFRESH ALL
+
+select * from tb_funcionarios(para atualizar a tabela)
+------------------------------------
+------------------------------------
+PARTE 3
+
+insert into tb_funcionarios(nome, trabalhando, salario, idade) values ("Leonardo", true, 1800.00,19); 
+insert into tb_funcionarios(nome, trabalhando, salario, idade) values ("Alberto", false, 3000.00,35); 
+insert into tb_funcionarios(nome, trabalhando, salario, idade) values ("Angelo", true, 1900,23); 
+insert into tb_funcionarios(nome, trabalhando, salario, idade) values ("Gabriel", false, 2500,20); 
+
+select * from tb_funcionarios
+
+-------------------------------------
+-------------------------------------
+PARTE 4
+
+update tb_funcionarios set nome = "Marcelo", trabalhando = true
+	where id = 2;
+
+select * from tb_funcionarios
+--------------------------------------
+---------------------------------------
+PARTE 5
+
+select * from tb_funcionarios where salario < 2000
+
+
+select * from tb_funcionarios where salario > 2000
+
+FIM
+
+
+
