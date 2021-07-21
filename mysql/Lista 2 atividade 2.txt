@@ -1,0 +1,87 @@
+Parte 1
+
+Create database db_pizzaria_legal
+
+use db_pizzaria_legal
+
+========================================
+Parte 2 
+
+create table tb_categoria(
+		id bigint (5) auto_increment,
+        categoria varchar (30) not null,
+        preferencia varchar (20) not null,
+        
+        primary key(id)
+
+);
+
+refresh all
+select * from tb_categoria
+
+==========================================
+Parte 3
+
+
+create table tb_pizza(
+		id bigint auto_increment,
+        sabor varchar (20) not null,
+        preco decimal (10,2),
+        borda varchar (20) not null,
+        azeitona boolean,
+        pizza_id bigint not null,
+        
+        primary key (id),
+        foreign key (pizza_id) references tb_categoria(id)
+        
+);
+
+refresh all
+select * from tb_pizza
+
+===============================================
+Parte 4
+
+insert tb_categoria(categoria, preferencia) values ("Pizza tradicional", "Brotinho");
+insert tb_categoria(categoria, preferencia) values ("Pizza da casa", "inteira");
+insert tb_categoria(categoria, preferencia) values ("Pizza do maranhão", "Brotinho");
+insert tb_categoria(categoria, preferencia) values ("Pizza tradicional italiana", "inteira");
+insert tb_categoria(categoria, preferencia) values ("Pizza comum", "Brotinho");
+
+refresh all
+select * from tb_categoria
+
+===============================================
+Parte 5
+
+insert tb_pizza(sabor, preco, borda, azeitona, pizza_id) values ("Frango", 70.00, "Cheedar", false, 1);
+insert tb_pizza(sabor, preco, borda, azeitona, pizza_id) values ("Portuguesa", 90.00,"Chocolate", true, 2);
+insert tb_pizza(sabor, preco, borda, azeitona, pizza_id) values ("Camarão", 120.00, "Cheedar", true, 3);
+insert tb_pizza(sabor, preco, borda, azeitona, pizza_id) values ("Calabreza", 100.00, "4 queijos", false, 4);
+insert tb_pizza(sabor, preco, borda, azeitona, pizza_id) values ("Queijo", 35.00, "Cheedar", false, 5);
+insert tb_pizza(sabor, preco, borda, azeitona, pizza_id) values ("Chocolate", 60.00, "Cheedar", true, 2);
+insert tb_pizza(sabor, preco, borda, azeitona, pizza_id) values ("Rucula", 80.00, "Cheedar", false, 1);
+insert tb_pizza(sabor, preco, borda, azeitona, pizza_id) values ("4 queijos", 20.00, "Cheedar", false, 5);
+
+refresh all
+
+==================================================
+Parte 6
+
+select * from tb_pizza where preco > 45;
+select * from tb_pizza where preco > 45;
+
+select * from tb_pizza where preco = 29 or 60;
+
+====================================================
+Parte 7
+
+select * from tb_pizza
+		inner join tb_categoria on tb_categoria.id = tb_pizza.pizza_id
+
+====================================================
+Parte 8 
+
+select * from tb_pizza
+		inner join tb_categoria on tb_categoria.id = tb_pizza.pizza_id
+        where tb_categoria.categoria = "Pizza da casa"

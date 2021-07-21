@@ -1,0 +1,87 @@
+Parte 1
+
+create database db_farmacia_do_bem;
+
+refresh all
+
+use db_farmacia_do_bem;
+
+=========================================
+
+Parte 2
+
+create table tb_categoria(
+		id bigint (3) auto_increment,
+        categoria varchar (20) not null,
+        paciente varchar (20) not null,
+        
+        primary key(id)
+);
+
+refresh all
+select * from tb_categoria
+===========================================
+Parte 3
+
+insert tb_categoria(categoria, paciente) values ("Anti-inflamatorio", "idoso");
+insert tb_categoria(categoria, paciente) values ("Anti-Alergico", "adulto");
+insert tb_categoria(categoria, paciente) values ("Talcos", "idoso");
+insert tb_categoria(categoria, paciente) values ("Anti-Bacteriano", "idoso");
+insert tb_categoria(categoria, paciente) values ("Anti-Biotico", "adulto");
+
+refresh all
+select * from tb_categoria;
+
+==============================================
+Parte 4
+
+create table tb_produto(
+		id bigint auto_increment,
+        nome varchar (20) not null,
+        estoque boolean,
+        laudo varchar (20) not null,
+        valor decimal (10,2),
+        produto_id bigint not null,
+        
+        primary key(id),
+        foreign key (produto_id) references tb_categoria(id)
+        
+);
+
+refresh all
+
+select * from tb_produto
+
+=====================================================
+Produto 5
+
+insert tb_produto( nome, estoque, laudo,valor, produto_id) values ("Paracetamol", true, "Nâo", 10.00, 1);
+insert tb_produto( nome, estoque, laudo,valor, produto_id) values ("Loratadina", true, "Nâo", 10.00, 2);
+insert tb_produto( nome, estoque, laudo,valor, produto_id) values ("Jhonsons", true, "Nâo", 20.00, 3);
+insert tb_produto( nome, estoque, laudo,valor, produto_id) values ("Trok", true, "Nâo", 45.00,4);
+insert tb_produto( nome, estoque, laudo,valor, produto_id) values ("Predinisona", true, "Sim", 150.00, 5);
+insert tb_produto( nome, estoque, laudo,valor, produto_id) values ("Dorflex", true, "Nâo", 25.00, 1);
+insert tb_produto( nome, estoque, laudo,valor, produto_id) values ("Alivium", true, "Nâo", 19.00, 1);
+insert tb_produto( nome, estoque, laudo,valor, produto_id) values ("Mertiolate", true, "Nâo", 35.00, 5);
+
+
+refresh all 
+select * from tb_produto
+=========================================================
+PArte 6
+
+select * from tb_produto where valor < 60
+select * from tb_produto where valor > 60
+
+=========================================================
+Parte 7 
+
+select * from tb_produto 
+		inner join tb_categoria on tb_categoria.id = tb_produto.produto_id
+
+
+===========================================================
+Produto 8
+select * from tb_produto 
+		inner join tb_categoria on tb_categoria.id = tb_produto.produto_id
+		where tb_categoria.categoria = "Anti-inflamatorio"
